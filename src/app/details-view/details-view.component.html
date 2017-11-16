@@ -1,0 +1,81 @@
+
+<section>
+ 
+ <span>Details View</span>
+  <div class="tbl-header">
+    <table cellpadding="0" cellspacing="0" border="0">
+      <thead>
+        <tr>
+            <th>Branch ID</th>             
+            <th>Ship Date</th>
+            <th>run time</th>
+            <th>Route</th>
+            <th>Facility
+                <span class='fill-method-printer'>printer Icon</span>
+            </th>
+            <th>Rx Number</th> 
+            <th>Order Label Scan</th>
+            <th>Patient Name</th>
+            <th>Drug Name</th>
+            <th>Fill Method</th>
+            <th>N/R</th>
+            <th>M/A</th>
+      	</tr>
+      </thead>
+    </table>
+  </div>
+  <div class="tbl-content">
+    <table cellpadding="0" cellspacing="0" border="0">
+      <tbody>
+        <tr *ngFor="let order of orders | async">
+          <td>{{order.branch_id}}</td>
+          <td>{{order.ship_date}}</td>
+          <td>{{order.run_time}}</td>
+          <td>{{order.route}}</td>
+          <td>{{order.facility}}</td>
+          <td>{{order.rx_number}}</td>
+          <td>{{order.patient_name}}</td>
+          <td>{{order.drug_name}}</td>
+          <td>{{order.fill_method}}</td>
+          <td>{{order.nr}}</td>
+          <td>{{order.ma}}</td>
+          <td>{{order.branch_id}}</td>
+        </tr>
+        <tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+
+<!-- follow me template -->
+<div class="detail-footer">
+
+<!-- pagination template -->
+
+<div class="pagination" *ngIf="count > 0">
+	<div class="description">
+		<span class="page-counts">{{ getMin() }} - {{ getMax() }} of {{ count }}</span>
+		<span class="page-totals">{{ totalPages() }} pages</span>
+	</div>
+	<div class="numbers">
+		<button class="link" (click)="onPrev()" [disabled]="page === 1 || loading" [ngClass]="{ 'disabled': page === 1 || loading }">&lt; Previous</button>
+		
+		<button
+			*ngFor="let pageNum of getPages()"
+			(click)="onPage(pageNum)"
+			[ngClass]="{'active': pageNum === page, 'disabled': loading}">{{ pageNum }}</button>
+
+		<button class="link" (click)="onNext(true)" [disabled]="lastPage() || loading" [ngClass]="{ 'disabled': lastPage() || loading }">Next &gt;</button>
+	</div>
+	
+</div>
+
+<!-- pagination template ends-->
+
+  Made with
+  <i>♥</i> by
+  <a target="_blank" href="https://codepen.io/nikhil8krishnan">Nikhil Krishnan</a>
+</div>
+
+

@@ -1,0 +1,27 @@
+.fill-method{
+
+	border : 1px solid grey;
+}
+
+
+table tr th {
+
+	padding : 13px;
+	border :1px solid grey;
+
+}
+table tr td {
+
+	padding : 13px;
+	border :1px solid grey;
+
+}
+
+
+.fill-method-printer{
+	display : block;
+}
+
+.fill-method{
+	width : 98%;
+}

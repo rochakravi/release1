@@ -1,0 +1,35 @@
+<app-fill-method-stats></app-fill-method-stats>
+
+<div>
+    <span>Fill Method DashBoard</span>
+	<table class='fill-method'>
+      	<tr>
+            <th>Branch ID</th>             
+            <th>Ship Date</th>
+            <th>run time</th>
+            <th>Route</th>
+            <th>Packaging
+                <span class='fill-method-printer'>printer Icon</span>
+            </th>
+            <th>PV2</th> 
+            <th>Total Scan</th>
+            <th>Ship Ready</th>
+            <th>Totals</th>
+      	</tr>
+
+        <tr *ngFor='let groupedOrder of orders | groupOrders'>
+            <td (click)="showDetail(groupedOrder, null)">{{groupedOrder.branch_id}}</td>
+            <td>{{groupedOrder.ship_date}}</td>
+            <td>{{groupedOrder.run_time}}</td>
+            <td>{{groupedOrder.route}}</td>
+            <td (click)="showDetail(groupedOrder, 'packaging')">{{groupedOrder.packaging}}</td>
+            <td (click)="showDetail(groupedOrder, 'pv2')">{{groupedOrder.pv2}}</td>
+            <td (click)="showDetail(groupedOrder, 'total_scan')">{{groupedOrder.total_scan}}</td>
+            <td (click)="showDetail(groupedOrder, 'ship_ready')">{{groupedOrder.ship_ready}}</td>
+            <td>{{groupedOrder.total}}</td>
+        </tr>
+
+  
+	</table>
+
+</div>
